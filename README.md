@@ -4,7 +4,7 @@ In this workshop, our goal is to finish building an e-commerce store!
 
 The good news is, most of our work is done already. We just need to write some additional CSS to construct the layout; things are a bit messy right now!
 
-- Access the Figma: https://www.figma.com/file/kAL3AumTUV11y1IqHhltB6/Sole-and-Ankle-%E2%80%94-Mockup
+- Access the Figma: https://www.figma.com/design/GO5438AvdyfdZ71AMHi6Ir/Sole%26Ankle-%E2%80%94-Mockup-(Copy)
 
 This project uses Create React App. To get started, run the following terminal commands:
 
