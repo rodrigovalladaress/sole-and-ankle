@@ -39,7 +39,6 @@ const MainHeader = styled.div`
 `;
 
 const Nav = styled.nav`
-  flex: 0 1 701px;
   display: flex;
   justify-content: space-between;
   gap: 48px;
