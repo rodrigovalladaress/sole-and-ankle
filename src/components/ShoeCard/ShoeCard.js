@@ -31,6 +31,13 @@ const ShoeCard = ({
       ? 'new-release'
       : 'default'
 
+  let FlagComponent = null;
+  if (variant === "on-sale") {
+    FlagComponent = <SaleFlag>Sale</SaleFlag>;
+  } else if (variant === "new-release") {
+    FlagComponent = <NewReleaseFlag>Just Released!</NewReleaseFlag>;
+  }
+
   return (
     <Link href={`/shoe/${slug}`}>
       <Wrapper>
@@ -45,6 +52,7 @@ const ShoeCard = ({
         <Row>
           <ColorInfo>{pluralize("Color", numOfColors)}</ColorInfo>
         </Row>
+        {FlagComponent}
       </Wrapper>
     </Link>
   );
@@ -55,7 +63,9 @@ const Link = styled.a`
   color: inherit;
 `;
 
-const Wrapper = styled.article``;
+const Wrapper = styled.article`
+  position: relative;
+`;
 
 const ImageWrapper = styled.div`
   position: relative;
@@ -87,6 +97,26 @@ const ColorInfo = styled.p`
 const SalePrice = styled.span`
   font-weight: ${WEIGHTS.medium};
   color: ${COLORS.primary};
+`;
+
+const Flag = styled.div`
+  position: absolute;
+  top: 12px;
+  right: -4px;
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: ${COLORS.white};
+  background-color: black;
+  padding: 7px 9px 8px 10px;
+  border-radius: 2px;
+`;
+
+const SaleFlag = styled(Flag)`
+  background-color: ${COLORS.primary};
+`;
+
+const NewReleaseFlag = styled(Flag)`
+  background-color: ${COLORS.secondary};
 `;
 
 export default ShoeCard;
