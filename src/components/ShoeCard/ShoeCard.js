@@ -38,6 +38,18 @@ const ShoeCard = ({
     FlagComponent = <NewReleaseFlag>Just Released!</NewReleaseFlag>;
   }
 
+  let priceStyle = {};
+  if (variant === "on-sale") {
+    priceStyle = {
+      "--color": COLORS.gray[700],
+      "--text-decoration": "line-through",
+    };
+  } else {
+    priceStyle = {
+      "--color": COLORS.gray[900],
+    };
+  }
+
   return (
     <Link href={`/shoe/${slug}`}>
       <Wrapper>
@@ -47,10 +59,11 @@ const ShoeCard = ({
         <Spacer size={12} />
         <Row>
           <Name>{name}</Name>
-          <Price>{formatPrice(price)}</Price>
+          <Price style={priceStyle}>{formatPrice(price)}</Price>
         </Row>
         <Row>
           <ColorInfo>{pluralize("Color", numOfColors)}</ColorInfo>
+          <SalePrice>{formatPrice(salePrice)}</SalePrice>
         </Row>
         {FlagComponent}
       </Wrapper>
@@ -88,7 +101,10 @@ const Name = styled.h3`
   color: ${COLORS.gray[900]};
 `;
 
-const Price = styled.span``;
+const Price = styled.span`
+  color: var(--color);
+  text-decoration: var(--text-decoration);
+`;
 
 const ColorInfo = styled.p`
   color: ${COLORS.gray[700]};
