@@ -63,7 +63,9 @@ const ShoeCard = ({
         </Row>
         <Row>
           <ColorInfo>{pluralize("Color", numOfColors)}</ColorInfo>
-          <SalePrice>{formatPrice(salePrice)}</SalePrice>
+          {variant === "on-sale" && (
+            <SalePrice>{formatPrice(salePrice)}</SalePrice>
+          )}
         </Row>
         {FlagComponent}
       </Wrapper>
@@ -120,7 +122,7 @@ const Flag = styled.div`
   top: 12px;
   right: -4px;
   font-size: 0.875rem;
-  font-weight: 700;
+  font-weight: ${WEIGHTS.bold};
   color: ${COLORS.white};
   background-color: black;
   padding: 7px 9px 8px 10px;
